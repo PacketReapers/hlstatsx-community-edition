@@ -5,7 +5,7 @@ RUN set -eux; \
     # So let's download it from our fork of GeoLiteCity.dat
     wget -qO- https://github.com/startersclan/GeoLiteCity-data/raw/c14d99c42446f586e3ca9c89fe13714474921d65/GeoLiteCity.dat > /GeoLiteCity.dat; \
     # Download the GeoIP2 binary. Maxmind discontinued distributing the GeoLite2 databases publicly, so a license key is needed. See: https://blog.maxmind.com/2019/12/18/significant-changes-to-accessing-and-using-geolite2-databases/
-    # In order to obtain the secret MAXMIND_LICENSE_KEY, we assume we have a sidecar secrets-server which will serve the secret MAXMIND_LICENSE_KEY at: http://localhost:8000/MAXMIND_LICENSE_KEY
+    # In order to obtain the secret MAXMIND_LICENSE_KEY, we assume we have a sidecar secrets-server which will serve the secret MAXMIND_LICENSE_KEY at: http://192.168.1.19:8000/MAXMIND_LICENSE_KEY
     wget -qO- https://cdn.jsdelivr.net/npm/geolite2-city@1.0.0/GeoLite2-City.mmdb.gz > /GeoLite2-City.mmdb.gz; \
     gzip -d /GeoLite2-City.mmdb.gz;
 
@@ -21,7 +21,7 @@ RUN set -eux; \
     find /scripts -type f -name 'run_*' -exec chmod 750 {} \;; \
     ls -al /scripts/*
 
-FROM perl:5.38.0-slim-buster AS dev
+FROM perl:5.38.0-slim-bookworm AS dev
 
 # Install modules
 RUN set -eux; \

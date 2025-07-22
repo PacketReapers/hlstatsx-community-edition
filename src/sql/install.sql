@@ -4015,7 +4015,7 @@ INSERT INTO `hlstats_Options` (`keyname`, `value`, `opttype`) VALUES
 ('contact', 'your@email.address',2),
 ('sitename', 'HLstatsX Community Edition',2),
 ('siteurl', 'http://www.yoursite.com/stats/',2),
-('style', 'sourcebans.css',2),
+('style', 'hlstats_final.css',2),
 ('imgpath', 'hlstatsimg',2),
 ('map_dlurl', 'http://www.yoursite.com/fastdownload/%GAME%/%MAP%.bsp.bz2',2),
 ('awards_d_date', '2008-08-30',2),
